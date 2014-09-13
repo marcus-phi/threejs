@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>Three.js Examples</title>
+		<script src="js/libs/jquery-1.11.1.min.js"></script>
+		
+		<script src="js/libs/dat.gui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/dat.gui.light.theme.css">
+		
+		<script src="js/libs/three.min.js"></script>
+		<script src="js/libs/TrackballControls.js"></script>
+		
+		<script src="js/utils.js"></script>
+		
+		<script>
+			$(document).ready(function() {
+				$("#sceneSelection").on("change", function() {
+					$("#onDemandScripts").empty();
+					loadScripts([this.value]);
+				});
+				initViewportRenderer();
+				loadScripts(["js/scenes/spincube.js"]);
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div id="onDemandScripts"></div>
+		<div>
+			<select id="sceneSelection">
+				<option value="js/scenes/spincube.js">Spinning Cube</option>
+				<option value="js/scenes/testscene.js">Test Scene</option>
+				<option value="js/scenes/ssao.js">SSAO</option>
+				<option value="js/scenes/water.js">Water</option>
+				<option value="js/scenes/poisson.js">Poisson</option>
+				<option value="js/scenes/hanoi.js">Hanoi</option>
+			</select>
+		</div>
+		<div id="viewport" style="width: 640px; height: 480px; border: 1px solid black; position:relative"></div>
+	</body>
+</html>
